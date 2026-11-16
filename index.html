@@ -7,7 +7,6 @@
 <style>
 :root{--ink:#f3f4f0;--muted:#c2d5d1;--paper:#244b4b;--card:#315b58;--sage:#477a72;--line:#638b83;--accent:#e9a9bb;}
 *{box-sizing:border-box}body{margin:0;position:relative;isolation:isolate;background:radial-gradient(ellipse at 20% 20%,rgba(139,220,210,.48),transparent 45%),radial-gradient(ellipse at 80% 75%,rgba(112,190,210,.42),transparent 50%),linear-gradient(125deg,#397b78,#559b99,#397d89,#478c7b);background-attachment:fixed;color:var(--ink);font:16px/1.55 Georgia,serif;}
-body::before{content:"";position:fixed;inset:-30%;z-index:-1;pointer-events:none;opacity:.38;filter:blur(2px);background:repeating-linear-gradient(170deg,transparent 0px,transparent 32px,rgba(220,250,245,.3) 34px,transparent 38px,transparent 66px);animation:waterRipple 18s ease-in-out infinite alternate;}@keyframes waterRipple{from{transform:translateX(-3%) translateY(-1%) skewY(-2deg);}to{transform:translateX(3%) translateY(2%) skewY(2deg);}}
 header{padding:48px 22px 34px;text-align:center;background:linear-gradient(180deg,rgba(8,22,17,.75),rgba(16,42,33,.45));border-bottom:1px solid rgba(217,154,170,.25);}
 .kicker{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 h1{font-size:clamp(34px,7vw,58px);font-weight:400;margin:12px 0 5px}
@@ -29,9 +28,9 @@ h2{font-weight:400;font-size:30px;margin:0 0 8px}.intro{color:var(--muted);max-w
 input{width:min(100%,360px);padding:11px 14px;border:1px solid var(--line);border-radius:22px;background:white;font:14px Arial;margin-top:14px}
 .tag{display:inline-block;background:#edf0e8;border-radius:15px;padding:3px 9px;font:11px Arial;color:#526455}
 footer{text-align:center;padding:24px;color:var(--muted);font:12px Arial;border-top:1px solid var(--line)}
-</style>
+body {background: transparent !important;}.water-video {osition: fixed;inset: 0;width: 100%;height: 100%;object-fit: cover;object-position: center;z-index: -2;pointer-events: none;}</style>
 </head>
-<body>
+<body><video class="water-video" autoplay muted loop playsinline><source src="media/19826461837867.mp4" type="video/mp4"></video>
 <header><div class="kicker">Интерактивный архив расследования</div><h1>Водяная Лилия</h1><div class="subtitle">История, персонажи, улики и вопросы без ответов</div></header>
 <nav>
 <button class="active" data-tab="home">Главная</button><button data-tab="people">Персонажи</button><button data-tab="clues">Улики</button><button data-tab="questions">Открытые вопросы</button>
