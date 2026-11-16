@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Водяная Лилия — архив расследования</title>
 <style>
-:root{--ink:#f1eee8;--muted:#bdc9c0;--paper:#172c25;--card:#243e33;--sage:#365b49;--line:#496957;--accent:#e5a6d7}
-*{box-sizing:border-box}body{margin:0;position:relative;isolation:isolate;background:radial-gradient(ellipse at 20% 20%,rgba(94,171,139,.30),transparent 42%),radial-gradient(ellipse at 80% 65%,rgba(70,151,150,.25),transparent 45%),linear-gradient(135deg,#193c30,#285342,#122b25);background-size:180% 180%;animation:waterGlow 16s ease-in-out infinite alternate;background-attachment:fixed;color:var(--ink);font:16px/1.55 Georgia,serif;}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 35px,rgba(164,220,199,.12) 37px,transparent 40px 75px);animation:waterRipple 22s ease-in-out infinite alternate;}@keyframes waterGlow{from{background-position:0% 0%}to{background-position:100% 100%}}@keyframes waterRipple{from{background-position:0 0}to{background-position:80px 45px}}
+:root{--ink:#f3f4f0;--muted:#c2d5d1;--paper:#244b4b;--card:#315b58;--sage:#477a72;--line:#638b83;--accent:#e9a9bb;}
+*{box-sizing:border-box}body{margin:0;position:relative;isolation:isolate;background:radial-gradient(ellipse at 20% 20%,rgba(139,220,210,.48),transparent 45%),radial-gradient(ellipse at 80% 75%,rgba(112,190,210,.42),transparent 50%),linear-gradient(125deg,#397b78,#559b99,#397d89,#478c7b);background-attachment:fixed;color:var(--ink);font:16px/1.55 Georgia,serif;}
+body::before{content:"";position:fixed;inset:-30%;z-index:-1;pointer-events:none;opacity:.38;filter:blur(2px);background:repeating-linear-gradient(170deg,transparent 0px,transparent 32px,rgba(220,250,245,.3) 34px,transparent 38px,transparent 66px);animation:waterRipple 18s ease-in-out infinite alternate;}@keyframes waterRipple{from{transform:translateX(-3%) translateY(-1%) skewY(-2deg);}to{transform:translateX(3%) translateY(2%) skewY(2deg);}}
 header{padding:48px 22px 34px;text-align:center;background:linear-gradient(180deg,rgba(8,22,17,.75),rgba(16,42,33,.45));border-bottom:1px solid rgba(217,154,170,.25);}
 .kicker{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 h1{font-size:clamp(34px,7vw,58px);font-weight:400;margin:12px 0 5px}
