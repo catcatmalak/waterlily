@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Водяная Лилия — архив расследования</title>
 <style>
-:root{--ink:#f3f4f0;--muted:#c2d5d1;--paper:#244b4b;--card:#315b58;--sage:#477a72;--line:#638b83;--accent:#e9a9bb;}
-*{box-sizing:border-box}body{margin:0;position:relative;isolation:isolate;background:radial-gradient(ellipse at 20% 20%,rgba(139,220,210,.48),transparent 45%),radial-gradient(ellipse at 80% 75%,rgba(112,190,210,.42),transparent 50%),linear-gradient(125deg,#397b78,#559b99,#397d89,#478c7b);background-attachment:fixed;color:var(--ink);font:16px/1.55 Georgia,serif;}
-header{padding:48px 22px 34px;text-align:center;background:linear-gradient(180deg,rgba(8,22,17,.75),rgba(16,42,33,.45));border-bottom:1px solid rgba(217,154,170,.25);}
+:root {--ink: #f0e9e5;--muted: #b7dcd3;--paper: #063f43;--card: rgba(6, 63, 67, 0.72);--sage: #087b7d;--line: rgba(183, 220, 211, 0.42);--accent: #d9a9b9;}
+*{box-sizing:border-box}body {margin: 0;position: relative;isolation: isolate;background:radial-gradient(ellipse at 18% 20%, rgba(57, 166, 160, 0.22), transparent 42%),radial-gradient(ellipse at 82% 75%, rgba(8, 123, 125, 0.28), transparent 48%),linear-gradient(135deg, #063f43, #07585a, #063f43);background-attachment: fixed;color: var(--ink);font: 16px/1.55 Georgia, serif;}
+header {padding: 48px 22px 34px;text-align: center;background: linear-gradient(180deg,rgba(3, 39, 43, 0.72),rgba(6, 63, 67, 0.25));border-bottom: 1px solid rgba(183, 220, 211, 0.3);box-shadow: 0 8px 30px rgba(0, 20, 25, 0.15);}
 .kicker{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 h1 {font-size: clamp(38px, 7vw, 68px);font-weight: 600;margin: 12px 0 5px;color: #f5dce8;text-shadow:0 1px 1px rgba(255,255,255,0.7),0 2px 3px rgba(180,120,150,0.6),0 5px 12px rgba(0,0,0,0.45);letter-spacing: 1px;}.title-wrap {position: relative;display: flex;align-items: center;justify-content: center;width: fit-content;max-width: 100%;margin: 0 auto;padding: 12px 24px;}.title-wrap::before,.title-wrap::after {content: "";position: absolute;width: 42px;height: 18px;border: 1px solid rgba(183, 225, 215, 0.8);border-radius: 100% 0 100% 0;box-shadow: 0 0 9px rgba(190, 235, 225, 0.35);}.title-wrap::before {left: -12px;top: 5px;transform: rotate(-28deg);}.title-wrap::after {right: -12px;bottom: 5px;transform: rotate(152deg);}.title-wrap h1 {margin: 12px 0 5px;}.flower {display: inline-block;color: #f2c5d8;font-size: clamp(24px, 4vw, 38px);text-shadow:0 0 8px rgba(255, 220, 240, 0.8),0 2px 5px rgba(0, 0, 0, 0.4);}.flower-left {transform: rotate(-20deg);}.flower-right {transform: rotate(20deg);}
 .subtitle{color:var(--muted);font-style:italic}
-nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px;background:rgba(7,18,15,.75);border-bottom:1px solid var(--line);}
-nav button,.filter{border:1px solid var(--line);background:transparent;color:var(--ink);padding:9px 15px;border-radius:22px;cursor:pointer;font:13px Arial}
-nav button.active,nav button:hover{background:var(--accent);color:white;border-color:var(--accent)}
+nav {display: flex;justify-content: center;gap: 10px;flex-wrap: wrap;padding: 18px 16px;background: rgba(3, 39, 43, 0.72);border-bottom: 1px solid var(--line);backdrop-filter: blur(12px);}
+nav button, .filter {border: 1px solid rgba(183, 220, 211, 0.35);background: rgba(183, 220, 211, 0.06);color: var(--ink);padding: 10px 17px;border-radius: 4px;cursor: pointer;font: 13px Georgia, serif;letter-spacing: 0.04em;transition: background 0.25s, border-color 0.25s, color 0.25s;}
+nav button.active,
+nav button:hover {background: rgba(57, 166, 160, 0.28);color: #ffffff;border-color: #b7dcd3;}
 main{max-width:980px;margin:32px auto;padding:0 18px 60px}
 .panel{display:none}.panel.active{display:block}
 h2{font-weight:400;font-size:30px;margin:0 0 8px}.intro{color:var(--muted);max-width:680px}
