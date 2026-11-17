@@ -32,8 +32,8 @@ body {margin: 0;position: relative;isolation: isolate;background: transparent !i
 </head>
 <body><video class="water-video" autoplay muted loop playsinline><source src="media/19826461837867.mp4" type="video/mp4"></video>
 <header><div class="kicker">Интерактивный архив расследования</div><div class="title-wrap"><h1>Водяная Лилия</h1></div><div class="subtitle">История, персонажи, улики и вопросы без ответов</div></header>
-<nav>
-<button class="active" data-tab="home">Главная</button><button data-tab="people">Персонажи</button><button data-tab="clues">Улики</button><button data-tab="questions">Открытые вопросы</button>
+<nav class="main-nav">
+<button class="active" data-tab="home">Главная</button><button data-tab="story">История дела</button><button data-tab="people">Персонажи</button><button data-tab="clues">Улики</button><button data-tab="timeline">Хронология</button><button data-tab="questions">Теории и вопросы</button><button data-tab="archive">Архив документов</button>
 </nav>
 <main>
 <section id="home" class="panel active">
@@ -57,5 +57,5 @@ const people=[
 const grid=document.getElementById("peopleGrid");
 function render(q=""){grid.innerHTML="";people.filter(p=>(p.name+" "+p.role).toLowerCase().includes(q.toLowerCase())).forEach((p,i)=>{const el=document.createElement("article");el.className="card";el.innerHTML=`<span class="tag">${p.role}</span><h3>${p.name}</h3><p>Карточка персонажа архива</p><button type="button">Подробнее</button><div class="detail">${p.desc}</div>`;el.querySelector("button").addEventListener("click",()=>el.querySelector(".detail").classList.toggle("open"));grid.appendChild(el)})}
 render();document.getElementById("search").addEventListener("input",e=>render(e.target.value));
-document.querySelectorAll("nav button").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("nav button,.panel").forEach(x=>x.classList.remove("active"));btn.classList.add("active");document.getElementById(btn.dataset.tab).classList.add("active")}));
+document.querySelectorAll(".main-nav button").forEach(btn => {btn.addEventListener("click", () => {document.querySelectorAll(".main-nav button").forEach(x => {x.classList.remove("active");});document.querySelectorAll(".panel").forEach(x => {x.classList.remove("active");});btn.classList.add("active");const page = document.getElementById(btn.dataset.tab);if (page) {page.classList.add("active");}});});
 </script></body></html>
