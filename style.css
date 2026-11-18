@@ -1,5 +1,5 @@
 :root {--ink: #263F3C;--muted: #536B66;--paper: #E5D5BE;--card: rgba(245, 236, 222, 0.94);--sage: #A9BDB0;--line: rgba(75, 91, 78, 0.3);--accent: #B98F91;}
-*{box-sizing:border-box}body {margin: 0;position: relative;isolation: isolate;background:radial-gradient(ellipse at 18% 20%, rgba(57, 166, 160, 0.22), transparent 42%),radial-gradient(ellipse at 82% 75%, rgba(8, 123, 125, 0.28), transparent 48%),linear-gradient(135deg, #063f43, #07585a, #063f43);background-attachment: fixed;color: var(--ink);font: 16px/1.55 Georgia, serif;}
+*{box-sizing:border-box}
 header {padding: 48px 22px 34px;text-align: center;background: linear-gradient(180deg,rgba(3, 39, 43, 0.72),rgba(6, 63, 67, 0.25));border-bottom: 1px solid rgba(183, 220, 211, 0.3);box-shadow: 0 8px 30px rgba(0, 20, 25, 0.15);}
 .kicker{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 h1 {font-size: clamp(38px, 7vw, 68px);font-weight: 600;margin: 12px 0 5px;color: #f5dce8;text-shadow:0 1px 1px rgba(255,255,255,0.7),0 2px 3px rgba(180,120,150,0.6),0 5px 12px rgba(0,0,0,0.45);letter-spacing: 1px;}.title-wrap {position: relative;display: flex;align-items: center;justify-content: center;width: fit-content;max-width: 100%;margin: 0 auto;padding: 12px 24px;}.title-wrap::before,.title-wrap::after {content: "";position: absolute;width: 42px;height: 18px;border: 1px solid rgba(183, 225, 215, 0.8);border-radius: 100% 0 100% 0;box-shadow: 0 0 9px rgba(190, 235, 225, 0.35);}.title-wrap::before {left: -12px;top: 5px;transform: rotate(-28deg);}.title-wrap::after {right: -12px;bottom: 5px;transform: rotate(152deg);}.title-wrap h1 {margin: 12px 0 5px;}.flower {display: inline-block;color: #f2c5d8;font-size: clamp(24px, 4vw, 38px);text-shadow:0 0 8px rgba(255, 220, 240, 0.8),0 2px 5px rgba(0, 0, 0, 0.4);}.flower-left {transform: rotate(-20deg);}.flower-right {transform: rotate(20deg);}
@@ -33,7 +33,6 @@ body {margin: 0;position: relative;isolation: isolate;background: transparent !i
 .episode-selector {flex-wrap: nowrap;justify-content: flex-start;overflow-x: auto;overflow-y: hidden;white-space: nowrap;gap: 10px;padding: 10px 16px;scrollbar-width: none;}
 .episode-selector::-webkit-scrollbar {display: none;}
 .episode-selector button {flex: 0 0 38px;}}
-main .panel > h2 {color: #F5E8D7;text-shadow: 0 2px 7px rgba(0, 20, 22, 0.85);}
 .panel .intro {color: var(--ink);background: rgba(245, 236, 222, 0.91);padding: 12px 16px;border-radius: 10px;}
 /* Контраст заголовков и подписей */
 header .kicker,
