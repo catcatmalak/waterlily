@@ -64,6 +64,15 @@ facts: [{episode: 2,text: "Помогает Райли выбраться из �
 role: "Музыкантка",
 firstEpisode: 9,
 facts: [{episode: 9,text: "Выступает вместе с Луной."}]}];
+const episodes = [
+{number: 1,
+title: "Название первой серии",
+summary: "Краткое содержание первой серии.",
+description: "Полное описание событий первой серии."},
+{number: 2,
+title: "Название второй серии",
+summary: "Краткое содержание второй серии.",
+description: "Полное описание событий второй серии."}];
 const grid = document.getElementById("peopleGrid");
 function render(q = "") {const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;grid.innerHTML = "";people.filter(person =>person.firstEpisode <= selectedEpisode &&(person.name + " " + person.role).toLowerCase().includes(q.toLowerCase())).forEach(person => {const el = document.createElement("article");el.className = "card";
 const visibleFacts = person.facts.filter(fact => fact.episode <= selectedEpisode);el.innerHTML = `<span class="tag">${person.role}</span><h3>${person.name}</h3><p>Материалы досье: ${visibleFacts.length}</p><button type="button">Подробнее</button><div class="detail">${visibleFacts.map(fact => `<p>${fact.text}</p>`).join("")}</div>`;
