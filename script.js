@@ -83,7 +83,7 @@ document.querySelectorAll(".main-nav button").forEach(btn => {btn.addEventListen
 const page = document.getElementById(btn.dataset.tab);if (page) {page.classList.add("active");}});});
 const episodeGate = document.getElementById("episode-gate");
 function selectEpisode(episode) {episode = Number(episode);if (episode < 1 || episode > 20) return;localStorage.setItem("waterlilyLastEpisode", episode);document.querySelectorAll("[data-view-episode]").forEach(button => {button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});if (episodeGate){episodeGate.style.display = "none";}
-render(document.getElementById("search").value);}
+render(document.getElementById("search").value);renderEpisodeDescription();}
 // Кнопки серий под меню 
 document.querySelectorAll("[data-view-episode]").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.viewEpisode);});});
 // Кнопки начального окна
