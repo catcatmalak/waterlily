@@ -90,3 +90,13 @@ document.querySelectorAll("[data-view-episode]").forEach(button => {button.addEv
 document.querySelectorAll(".episode-gate-grid button").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.episode);});});
 // Восстановление последней выбранной серии
 const savedEpisode = Number(localStorage.getItem("waterlilyLastEpisode"));if (savedEpisode >= 1 && savedEpisode <= 20) {selectEpisode(savedEpisode);}
+function renderEpisodeDescription() {
+const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
+const episode = episodes.find(item => item.number === selectedEpisode);
+if (!episode) return;
+document.getElementById("episode-number").textContent =
+`СЕРИЯ ${String(episode.number).padStart(2, "0")}`;
+document.getElementById("episode-title").textContent = episode.title;
+document.getElementById("episode-summary").textContent = episode.summary;
+document.getElementById("episode-full-description").textContent =
+episode.description;}renderEpisodeDescription();
