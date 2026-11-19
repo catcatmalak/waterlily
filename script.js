@@ -98,8 +98,17 @@ document.getElementById("episode-number").textContent =
 `СЕРИЯ ${String(episode.number).padStart(2, "0")}`;
 document.getElementById("episode-title").textContent = episode.title;
 document.getElementById("episode-summary").textContent = episode.summary;
-document.getElementById("episode-full-description").textContent =
-episode.description;}renderEpisodeDescription();
+document.getElementById("episode-full-description").textContent = episode.description;
+document.getElementById("episode-full-description").style.display = "none";
+document.getElementById("episode-details-button").textContent = "Читать полное описание";}
+renderEpisodeDescription();
+const episodeDetailsButton = document.getElementById("episode-details-button");
+const episodeFullDescription = document.getElementById("episode-full-description");
+if (episodeDetailsButton && episodeFullDescription) {
+episodeDetailsButton.addEventListener("click", () => {
+const isHidden = getComputedStyle(episodeFullDescription).display === "none";
+episodeFullDescription.style.display = isHidden ? "block" : "none";
+episodeDetailsButton.textContent = isHidden? "Свернуть описание": "Читать полное описание";});}
 const episodeDetailsToggle = document.getElementById("episode-details-toggle");
 const episodeDescription = document.getElementById("episode-description");
 const episodeModalClose = document.getElementById("episode-modal-close");
