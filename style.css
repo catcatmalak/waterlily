@@ -49,6 +49,6 @@ main .panel > h2 {color: #FFF1E2;text-shadow: 0 2px 8px rgba(0, 20, 22, 0.9);}
 /* Всплывающее окно содержания серии */
 .episode-modal {display: none;position: fixed;inset: 0;z-index: 9999;align-items: center;justify-content: center;padding: 20px;background: rgba(0, 15, 18, 0.72);backdrop-filter: blur(5px);}
 .episode-modal.open {display: flex;}
-.episode-modal-content {position: relative;width: min(650px, 100%);max-height: 85vh;overflow-y: auto;padding: 35px;background: rgba(238, 224, 207, 0.98);border: 1px solid rgba(112, 83, 68, 0.75);border-radius: 5px;box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);color: #59483F;text-align: center;}
+.episode-modal-content {position: relative;width: min(650px, 100%);max-height: 85vh;overflow-y: auto;padding: 35px;background:radial-gradient(ellipse at 10% 15%, rgba(112, 75, 43, 0.18), transparent 35%),radial-gradient(ellipse at 90% 85%, rgba(125, 83, 51, 0.16), transparent 40%),radial-gradient(ellipse at 50% 50%, rgba(255, 244, 218, 0.35), transparent 70%),linear-gradient(135deg, #D4BE9B, #E6D3B1 45%, #D1B991);border: 1px solid #8C7050;border-radius: 3px;box-shadow:inset 0 0 0 5px rgba(117, 83, 53, 0.10),inset 0 0 35px rgba(91, 61, 37, 0.22),0 12px 40px rgba(0, 0, 0, 0.45);color: #59483F;text-align: center;}
 .episode-modal-close {position: absolute;top: 10px;right: 15px;border: none;background: transparent;color: #59483F;font-size: 28px;cursor: pointer;}@media (max-width: 600px) {
 .episode-modal-content {padding: 30px 18px;}}
