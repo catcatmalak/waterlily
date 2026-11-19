@@ -4,7 +4,7 @@
 padding: 70px 22px 55px;
 text-align: center;
 background:linear-gradient(rgba(3, 39, 43, 0.12), rgba(3, 39, 43, 0.18)),
-url("media/header-water.png.jpg") center center / contain no-repeat;
+url("media/header-water.png.jpg") center center / cover no-repeat;
 border-bottom: 1px solid rgba(213, 193, 154, 0.55);
 box-shadow: 0 8px 30px rgba(0, 20, 25, 0.15);
 min-height: 420px;}
