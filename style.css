@@ -3,7 +3,8 @@
 .site-header {
 padding: 70px 22px 55px;
 text-align: center;
-background-image: url("media/header-water.png.jpg");
+background-image: linear-gradient(rgba(3, 39, 43, 0.12), rgba(3, 39, 43, 0.18)),
+url("media/header-water.png.jpg");
 background-position: center;
 backgraund-size: 100% 100%;
 backgraund-repeat: no-repeat;
