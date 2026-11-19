@@ -44,3 +44,7 @@ main .panel > h2 {color: #FFF1E2;text-shadow: 0 2px 8px rgba(0, 20, 22, 0.9);}
 .episode-description-header {margin-bottom: 18px;}#episode-number {display: block;margin-bottom: 10px;color: #987568;font: 12px Georgia, serif;letter-spacing: 3px;}#episode-title {margin: 0;color: #59483F;font: 26px Georgia, serif;}#episode-summary {max-width: 680px;margin: 18px auto;color: #59483F;font: 16px/1.8 Georgia, serif;}#episode-details-button {margin-top: 12px;padding: 11px 22px;border: 1px solid #987568;background: #D8C5B0;color: #59483F;font: 14px Georgia, serif;cursor: pointer;transition: 0.25s ease;}#episode-details-button:hover {background: #C9A99A;}
 .episode-full-description {display: none;margin-top: 20px;padding-top: 18px;border-top: 1px solid rgba(89, 72, 63, 0.3);text-align: left;line-height: 1.8;}max-width: 600px {
 .episode-description {margin: 18px 8px 30px;padding: 22px 17px;}#episode-title {font-size: 22px;}#episode-summary {font-size: 14px;}}
+/* Жемчужная кнопка содержания серии */
+.episode-details-toggle {display: flex;align-items: center;justify-content: center;gap: 10px;width: fit-content;margin: 12px auto 20px;padding: 9px 20px;border: 1px solid rgba(217, 169, 185, 0.8);border-radius: 30px;background: rgba(238, 224, 207, 0.9);color: #59483F;font: 14px Georgia, serif;cursor: pointer;box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);transition: 0.3s ease;}
+.episode-details-toggle:hover {background: #F4E9D9;border-color: #D9A9B9;transform: translateY(-2px);box-shadow: 0 5px 15px rgba(217, 169, 185, 0.4);}
+.episode-details-toggle span {font-size: 17px;}
