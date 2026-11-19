@@ -7,7 +7,7 @@ background:linear-gradient(rgba(3, 39, 43, 0.12), rgba(3, 39, 43, 0.18)),
 url("media/header-water.png.jpg") center center / cover no-repeat;
 border-bottom: 1px solid rgba(213, 193, 154, 0.55);
 box-shadow: 0 8px 30px rgba(0, 20, 25, 0.15);
-min-height: 300px;}
+min-height: 420px;}
 .kicker{font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 h1 {font-size: clamp(38px, 7vw, 68px);font-weight: 600;margin: 12px 0 5px;color: #f5dce8;text-shadow:0 1px 1px rgba(255,255,255,0.7),0 2px 3px rgba(180,120,150,0.6),0 5px 12px rgba(0,0,0,0.45);letter-spacing: 1px;}.title-wrap {position: relative;display: flex;align-items: center;justify-content: center;width: fit-content;max-width: 100%;margin: 0 auto;padding: 12px 24px;}.title-wrap::before,.title-wrap::after {content: "";position: absolute;width: 42px;height: 18px;border: 1px solid rgba(183, 225, 215, 0.8);border-radius: 100% 0 100% 0;box-shadow: 0 0 9px rgba(190, 235, 225, 0.35);}.title-wrap::before {left: -12px;top: 5px;transform: rotate(-28deg);}.title-wrap::after {right: -12px;bottom: 5px;transform: rotate(152deg);}.title-wrap h1 {margin: 12px 0 5px;}
 .subtitle{color:var(--muted);font-style:italic}
