@@ -93,8 +93,6 @@ render(document.getElementById("search").value);renderEpisodeDescription();}
 document.querySelectorAll("[data-view-episode]").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.viewEpisode);});});
 // Кнопки начального окна
 document.querySelectorAll(".episode-gate-grid button").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.episode);});});
-// Восстановление последней выбранной серии
-const savedEpisode = Number(localStorage.getItem("waterlilyLastEpisode"));if (savedEpisode >= 1 && savedEpisode <= 20) {selectEpisode(savedEpisode);}
 function renderEpisodeDescription() {
 const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
 const episode = episodes.find(item => item.number === selectedEpisode);
@@ -125,3 +123,6 @@ episodeDetailsToggle.querySelector("span").textContent = "⌃";});}
 if (episodeModalClose) {episodeModalClose.addEventListener("click", closeEpisodeModal);}
 if (episodeDescription) {episodeDescription.addEventListener("click", (event) => {if (event.target === episodeDescription) {closeEpisodeModal();}});}
 document.addEventListener("keydown", (event) => {if (event.key === "Escape") {closeEpisodeModal();}});
+// Восстановление последней выбранной серии
+const savedEpisode = Number(localStorage.getItem("waterlilyLastEpisode"));
+if (savedEpisode >= 1 && savedEpisode <= 20) {selectEpisode(savedEpisode);}
