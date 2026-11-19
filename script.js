@@ -82,7 +82,12 @@ grid.appendChild(el);});}render();document.getElementById("search").addEventList
 document.querySelectorAll(".main-nav button").forEach(btn => {btn.addEventListener("click", () => {document.querySelectorAll(".main-nav button").forEach(x => {x.classList.remove("active");});document.querySelectorAll(".panel").forEach(x => {x.classList.remove("active");});btn.classList.add("active");                                                                                                 
 const page = document.getElementById(btn.dataset.tab);if (page) {page.classList.add("active");}});});
 const episodeGate = document.getElementById("episode-gate");
-function selectEpisode(episode) {episode = Number(episode);if (episode < 1 || episode > 20) return;localStorage.setItem("waterlilyLastEpisode", episode);document.querySelectorAll("[data-view-episode]").forEach(button => {button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});if (episodeGate){episodeGate.style.display = "none";}
+function selectEpisode(episode) {episode = Number(episode);
+if (episode < 1 || episode > 20) return;
+localStorage.setItem("waterlilyLastEpisode", episode);
+document.querySelectorAll("[data-view-episode]").forEach(button => {button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});
+if (episodeGate) {episodeGate.style.display = "none";}
+closeEpisodeModal();
 render(document.getElementById("search").value);renderEpisodeDescription();}
 // Кнопки серий под меню 
 document.querySelectorAll("[data-view-episode]").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.viewEpisode);});});
