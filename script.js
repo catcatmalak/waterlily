@@ -102,7 +102,17 @@ document.getElementById("episode-full-description").textContent =
 episode.description;}renderEpisodeDescription();
 const episodeDetailsToggle = document.getElementById("episode-details-toggle");
 const episodeDescription = document.getElementById("episode-description");
-if (episodeDetailsToggle && episodeDescription) {episodeDetailsToggle.addEventListener("click", () => {
-const isHidden = episodeDescription.style.display === "none";episodeDescription.style.display = isHidden ? "block" : "none";episodeDetailsToggle.querySelector("span").textContent = isHidden ? "⌃" : "⌄";});}
-
-
+const episodeModalClose = document.getElementById("episode-modal-close");
+if (episodeDetailsToggle && episodeDescription) {
+episodeDetailsToggle.addEventListener("click", () => {
+episodeDescription.classList.add("open");
+episodeDetailsToggle.querySelector("span").textContent = "⌃";});}
+if (episodeModalClose && episodeDescription) {
+episodeModalClose.addEventListener("click", () => {
+episodeDescription.classList.remove("open");
+episodeDetailsToggle.querySelector("span").textContent = "⌄";});}
+if (episodeDescription) {
+episodeDescription.addEventListener("click", (event) => {
+if (event.target === episodeDescription) {
+episodeDescription.classList.remove("open");
+episodeDetailsToggle.querySelector("span").textContent = "⌄";}});}
