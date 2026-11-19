@@ -103,16 +103,11 @@ episode.description;}renderEpisodeDescription();
 const episodeDetailsToggle = document.getElementById("episode-details-toggle");
 const episodeDescription = document.getElementById("episode-description");
 const episodeModalClose = document.getElementById("episode-modal-close");
-if (episodeDetailsToggle && episodeDescription) {
-episodeDetailsToggle.addEventListener("click", () => {
-episodeDescription.classList.add("open");
+function closeEpisodeModal() {if (!episodeDescription) return;
+episodeDescription.classList.remove("open");
+if (episodeDetailsToggle) {episodeDetailsToggle.querySelector("span").textContent = "⌄";}}
+if (episodeDetailsToggle && episodeDescription) {episodeDetailsToggle.addEventListener("click", () => {episodeDescription.classList.add("open");
 episodeDetailsToggle.querySelector("span").textContent = "⌃";});}
-if (episodeModalClose && episodeDescription) {
-episodeModalClose.addEventListener("click", () => {
-episodeDescription.classList.remove("open");
-episodeDetailsToggle.querySelector("span").textContent = "⌄";});}
-if (episodeDescription) {
-episodeDescription.addEventListener("click", (event) => {
-if (event.target === episodeDescription) {
-episodeDescription.classList.remove("open");
-episodeDetailsToggle.querySelector("span").textContent = "⌄";}});}
+if (episodeModalClose) {episodeModalClose.addEventListener("click", closeEpisodeModal);}
+if (episodeDescription) {episodeDescription.addEventListener("click", (event) => {if (event.target === episodeDescription) {closeEpisodeModal();}});}
+document.addEventListener("keydown", (event) => {if (event.key === "Escape") {closeEpisodeModal();}});
