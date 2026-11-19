@@ -61,10 +61,20 @@
   <button data-view-episode="19">19</button>
   <button data-view-episode="20">20</button>
 </div>
-<div class="episode-description">
+<button id="episode-details-toggle" class="episode-details-toggle" type="button">
+✧ Содержание серии
+<span>⌄</span>
+</button>
+<div class="episode-description" id="episode-description" style="display: none;">
 <div class="episode-description-header">
 <span id="episode-number">СЕРИЯ 01</span>
 <h3 id="episode-title">Название серии</h3>
+</div>
+<p id="episode-summary">Краткое содержание серии.</p>
+<button id="episode-details-button" type="button">
+Читать полное описание
+</button>
+<div id="episode-full-description" class="episode-full-description"></div>
 </div>
 <p id="episode-summary">Краткое содержание серии появится здесь.</p>
 <button id="episode-details-button" type="button">Читать полное описание</button>
@@ -85,7 +95,7 @@
 <div class="card"><span class="tag">Начало расследования</span><h3>Возвращение в город</h3><p>Райли возвращается в город на свадьбу Эмили Ферчайлд.Эта поездка вновь связывает её с семьёй Ферчайлд и воспоминаниями о Лили.
 </p></div><div class="card"><span class="tag">Центральное событие</span><h3>Смерть Лили</h3><p>Смерть Лили становится одним из центральных обстоятельств истории. Её прошлое, отношения с окружающими и события,предшествовавшие трагедии, требуют внимательного изучения.</p></div><div class="card"><span class="tag">Цель архива</span><h3>Восстановить картину событий</h3><p>Собрать свидетельства, сопоставить факты, обнаружить противоречия и отделить подтверждённые сведения от предположений.</p></div></div></section><section id="people" class="panel">
 <h2>Персонажи</h2><p class="intro">Краткие карточки участников истории. Данные ниже — демонстрационное наполнение, его нужно сверить с игрой.</p>
-    <input id="search" placeholder="Найти персонажа…"><div class="grid" id="peopleGrid"></div></section>
+<input id="search" placeholder="Найти персонажа…"><div class="grid" id="peopleGrid"></div></section>
 <section id="clues" class="panel"><h2>Улики и доказательства</h2><p class="intro">Раздел для важных предметов, свидетельств и деталей. Статусы помогают отличать подтверждённое от того, что ещё предстоит проверить.</p><div class="grid">
 <div class="card"><span class="tag">Требует проверки</span><h3>Записка</h3><p>Демонстрационная запись. Здесь можно указать, где и когда она обнаружена, кто с ней связан и какие версии она поддерживает.</p></div>
 <div class="card"><span class="tag">Значение неизвестно</span><h3>Необъяснённая деталь</h3><p>Место для наблюдения, которое пока не получило убедительного объяснения.</p></div></div></section>
