@@ -100,3 +100,9 @@ document.getElementById("episode-title").textContent = episode.title;
 document.getElementById("episode-summary").textContent = episode.summary;
 document.getElementById("episode-full-description").textContent =
 episode.description;}renderEpisodeDescription();
+const episodeDetailsToggle = document.getElementById("episode-details-toggle");
+const episodeDescription = document.getElementById("episode-description");
+if (episodeDetailsToggle && episodeDescription) {episodeDetailsToggle.addEventListener("click", () => {
+const isHidden = episodeDescription.style.display === "none";episodeDescription.style.display = isHidden ? "block" : "none";episodeDetailsToggle.querySelector("span").textContent = isHidden ? "⌃" : "⌄";});}
+
+
