@@ -2,7 +2,24 @@ const people = window.peopleData || [];
 const episodes = window.episodesData || [];
 const clues = window.cluesData || [];
 const grid = document.getElementById("peopleGrid");
-function render(q = "") {const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;grid.innerHTML = "";people.filter(person =>person.firstEpisode <= selectedEpisode &&(person.name + " " + person.role).toLowerCase().includes(q.toLowerCase())).forEach(person => {const el = document.createElement("article");el.className = "card";
+function render(q = ""),
+const cluesGrid = document.getElementById("clues-container");
+function renderClues() {if (!cluesGrid) return;
+const selectedEpisode =
+Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
+cluesGrid.innerHTML = "";
+clues.filter(clue => clue.revealEpisode <= selectedEpisode).forEach(clue => {
+const card = document.createElement("article");
+card.className = "card";
+card.innerHTML = `
+<span class="tag">${clue.status}</span>
+<h3>${clue.name}</h3>
+<p>${clue.type}</p>
+<p>${clue.description}</p>
+<p><strong>Связанные персонажи:</strong>${clue.relatedPeople.join(", ")}</p>`;
+cluesGrid.appendChild(card);});}
+renderClues();
+{const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;grid.innerHTML = "";people.filter(person =>person.firstEpisode <= selectedEpisode &&(person.name + " " + person.role).toLowerCase().includes(q.toLowerCase())).forEach(person => {const el = document.createElement("article");el.className = "card";
 const visibleFacts = person.facts.filter(fact => fact.episode <= selectedEpisode);el.innerHTML = `<span class="tag">${person.role}</span><h3>${person.name}</h3><p>Материалы досье: ${visibleFacts.length}</p><button type="button">Подробнее</button><div class="detail">${visibleFacts.map(fact => `<p>${fact.text}</p>`).join("")}</div>`;
 el.querySelector("button").addEventListener("click", () => {
 el.querySelector(".detail").classList.toggle("open");});
@@ -16,7 +33,9 @@ localStorage.setItem("waterlilyLastEpisode", episode);
 document.querySelectorAll("[data-view-episode]").forEach(button => {button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});
 if (episodeGate) {episodeGate.style.display = "none";}
 closeEpisodeModal();
-render(document.getElementById("search").value);renderEpisodeDescription();}
+render(document.getElementById("search").value);
+renderClues();   
+renderEpisodeDescription();}
 // Кнопки серий под меню 
 document.querySelectorAll("[data-view-episode]").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.viewEpisode);});});
 // Кнопки начального окна
