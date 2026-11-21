@@ -20,6 +20,22 @@ storyGrid.innerHTML = "";
 story.filter(event => event.revealEpisode <= selectedEpisode).forEach(event => {
 const card = document.createElement("article");card.className = "card";
 card.innerHTML = `<span class="tag">${event.type}</span><h3>${event.title}</h3><p>${event.description}</p><span class="tag">Серия ${event.episode}</span>`;storyGrid.appendChild(card);});}
+function renderTimeline() {
+const timelineContainer = document.getElementById("timeline-container");
+if (!timelineContainer) return;
+const selectedEpisode =Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
+const events = (window.timelineData || [])
+.filter(event => event.revealEpisode <= selectedEpisode).sort((a, b) => a.order - b.order);timelineContainer.innerHTML = "";
+if (events.length === 0) {timelineContainer.textContent = "Пока нет доступных событий.";return;}
+events.forEach(event => {
+const card = document.createElement("article");card.className = "card timeline-card";
+const tag = document.createElement("span");tag.className = "tag";tag.textContent = event.type || "Событие";
+const date = document.createElement("p");date.className = "timeline-date";date.textContent = event.date || event.period || "";
+const title = document.createElement("h3");title.textContent = event.title;
+const description = document.createElement("p");description.textContent = event.description;card.append(tag, date, title, description);
+if (event.people && event.people.length) {const people = document.createElement("p");people.className = "timeline-people";people.textContent = "Связанные персонажи: " + event.people.join(", ");card.appendChild(people);}
+if (event.status) {const status = document.createElement("span");status.className = "tag";status.textContent = event.status;card.appendChild(status);}
+timelineContainer.appendChild(card);});}
 function render(q = "") {if (!grid) return;
 const selectedEpisode =Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
 grid.innerHTML = "";
