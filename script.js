@@ -73,11 +73,10 @@ card.appendChild(createElement("h3", "", event.title));
 card.appendChild(createElement("p", "", event.description));
 if (event.people && event.people.length) {
 card.appendChild(
-createElement("
-event.date — Live events, tickets and people to meet
-event.datep",
+createElement(
+"p",
 "timeline-people",
-"Связанные персонажи: " + event.people.join(", ")));}
+"Связанные персонажи: " + event.people.join(", ")));f}
 if (event.status) {
 card.appendChild(createElement("span", "tag", event.status));}
 timelineContainer.appendChild(card);});}
@@ -252,8 +251,7 @@ renderEpisodeDescription();
 // Кнопка полного описания серии
 const episodeDetailsButton = document.getElementById("episode-details-button");
 const episodeFullDescription = document.getElementById("episode-full-description");
-if (episodeDetailsButton && episodeFullDescription) {epi
-sodeDetailsButton.addEventListener("click", () => {
+if (episodeDetailsButton && episodeFullDescription) {episodeDetailsButton.addEventListener("click", () => {
 const isHidden = getComputedStyle(episodeFullDescription).display === "none";episodeFullDescription.style.display = isHidden ? "block" : "none";episodeDetailsButton.textContent = isHidden
 ? "Свернуть описание"
 : "Читать полное описание";});}
