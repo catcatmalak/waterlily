@@ -76,7 +76,7 @@ card.appendChild(
 createElement(
 "p",
 "timeline-people",
-"Связанные персонажи: " + event.people.join(", ")));f}
+"Связанные персонажи: " + event.people.join(", ")));}
 if (event.status) {
 card.appendChild(createElement("span", "tag", event.status));}
 timelineContainer.appendChild(card);});}
