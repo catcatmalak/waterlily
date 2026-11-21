@@ -213,8 +213,12 @@ if (page) {page.classList.add("active");}});});
 // Выбор серии
 const episodeGate = document.getElementById("episode-gate");
 function selectEpisode(episode) {episode = Number(episode);
-if (episode < 1 || episode > 20) return;localStorage.setItem("waterlilyLastEpisode", episode);document.querySelectorAll("[data-view-episode]").forEach(button => {button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});
-if (episodeGate) {episodeGate.style.display = "none";}
+if (episode < 1 || episode > 20) return;
+localStorage.setItem("waterlilyLastEpisode", episode);
+document.querySelectorAll("[data-view-episode]").forEach(button => {
+button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});
+const gate = document.getElementById("episode-gate");
+if (gate) {gate.style.display = "none";}
 closeEpisodeModal();
 render(document.getElementById("search")?.value || "");
 renderClues();
