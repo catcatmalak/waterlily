@@ -190,12 +190,30 @@ if (rules.length) {const section = addSection("Правила публикаци
 const notes = theoriesData.interpretationNotes || [];
 if (notes.length) {const section = addSection("Как читать материалы расследования");appendList(section, "Важные замечания", notes);}
 if (!theoriesContainer.children.length) {theoriesContainer.textContent = "Пока нет доступных материалов.";}}
+// Архив документов
+function renderDocuments() {
+const container = document.getElementById("documents-container");
+const documents = window.documentsData || [];
+if (!container) return;container.innerHTML = "";
+documents.forEach(item => {
+const card = createElement("article", "card");
+card.appendChild(createElement("span", "tag", item.category));
+card.appendChild(createElement("h3", "", item.title));
+if (item.episode) {card.appendChild(createElement("span", "tag", item.episode));}
+if (item.discoverer) {card.appendChild(createElement("p", "", "Обнаружил: " + item.discoverer));}
+if (item.status) {card.appendChild(createElement("p", "", "Статус: " + item.status));}
+if (item.description) {card.appendChild(createElement("p", "", item.description));}
+if (Array.isArray(item.details)) {appendList(card, "Подробности", item.details);} else if (item.details) {card.appendChild(createElement("p", "", item.details));}
+if (item.note) {card.appendChild(createElement("p", "", item.note));}
+container.appendChild(card);});
+if (!documents.length) {container.textContent = "В архиве пока нет документов.";}}
 // Первоначальная отрисовка
 render();
 renderClues();
 renderTimeline();
 renderStory();
 renderTheories();
+renderDocuments();
 // Поиск персонажей
 const searchInput = document.getElementById("search");
 if (searchInput) {searchInput.addEventListener("input", event => {render(event.target.value);});}
