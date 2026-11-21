@@ -218,7 +218,7 @@ localStorage.setItem("waterlilyLastEpisode", episode);
 document.querySelectorAll("[data-view-episode]").forEach(button => {
 button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});
 const gate = document.getElementById("episode-gate");
-if (gate) {gate.style.display = "none";}
+if (gate) {gate.classList.add("is-hidden");}
 closeEpisodeModal();
 render(document.getElementById("search")?.value || "");
 renderClues();
@@ -232,8 +232,7 @@ button.addEventListener("click", () => {
 selectEpisode(button.dataset.viewEpisode);});});
 // Кнопки начального окна
 document.querySelectorAll(".episode-gate-grid button").forEach(button => {
-button.addEventListener("click", () => {
-selectEpisode(button.dataset.episode);});});
+button.addEventListener("click", () => {selectEpisode(button.dataset.episode);});});
 // Описание серии
 function renderEpisodeDescription() {
 const selectedEpisode = getSelectedEpisode();
