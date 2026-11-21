@@ -1,3 +1,4 @@
+const people = window.peopleData || [];
 const episodes = window.episodesData || [];
 const grid = document.getElementById("peopleGrid");
 function render(q = "") {const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;grid.innerHTML = "";people.filter(person =>person.firstEpisode <= selectedEpisode &&(person.name + " " + person.role).toLowerCase().includes(q.toLowerCase())).forEach(person => {const el = document.createElement("article");el.className = "card";
