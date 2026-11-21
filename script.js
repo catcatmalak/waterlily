@@ -51,6 +51,7 @@ el.querySelector(".detail").classList.toggle("open");});
 grid.appendChild(el);});}
 render();
 renderClues();
+renderTimeline();
 renderStory();
 const searchInput = document.getElementById("search");
 if (searchInput) {searchInput.addEventListener("input", e => {render(e.target.value);});}
@@ -68,6 +69,7 @@ closeEpisodeModal();
 render(document.getElementById("search")?.value || "");
 renderClues();
 renderStory();
+renderTimeline();                                
 renderEpisodeDescription();}
 // Кнопки серий под меню
 document.querySelectorAll("[data-view-episode]").forEach(button => {button.addEventListener("click", () => {selectEpisode(button.dataset.viewEpisode);});});
@@ -108,4 +110,3 @@ document.addEventListener("keydown", event => {if (event.key === "Escape") {clos
 // Восстановление последней выбранной серии
 const savedEpisode =Number(localStorage.getItem("waterlilyLastEpisode"));
 if (savedEpisode >= 1 && savedEpisode <= 20) {selectEpisode(savedEpisode);}
-
