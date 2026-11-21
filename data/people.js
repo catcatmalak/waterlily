@@ -78,6 +78,4 @@ facts: [{ episode: 2, text: "Помогает Райли выбраться из
 name: "Симона",
 role: "Музыкант",
 firstEpisode: 9,
-facts: [{ episode: 9, text: "Выступает вместе с Луной." }]
-  }
-];
+facts: [{ episode: 9, text: "Выступает вместе с Луной." }]}];
