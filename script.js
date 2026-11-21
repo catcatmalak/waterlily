@@ -2,13 +2,14 @@ const people = window.peopleData || [];
 const episodes = window.episodesData || [];
 const clues = window.cluesData || [];
 const grid = document.getElementById("peopleGrid");
-function render(q = ""),
 const cluesGrid = document.getElementById("clues-container");
-function renderClues() {if (!cluesGrid) return;
+function renderClues() {
+if (!cluesGrid) return;
 const selectedEpisode =
 Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
 cluesGrid.innerHTML = "";
-clues.filter(clue => clue.revealEpisode <= selectedEpisode).forEach(clue => {
+clues.filter(clue => clue.revealEpisode <= selectedEpisode)
+.forEach(clue => {
 const card = document.createElement("article");
 card.className = "card";
 card.innerHTML = `
@@ -16,14 +17,30 @@ card.innerHTML = `
 <h3>${clue.name}</h3>
 <p>${clue.type}</p>
 <p>${clue.description}</p>
-<p><strong>Связанные персонажи:</strong>${clue.relatedPeople.join(", ")}</p>`;
+<p><strong>Связанные персонажи:</strong> ${clue.relatedPeople.join(", ")}</p>`;
 cluesGrid.appendChild(card);});}
-renderClues();
-{const selectedEpisode = Number(localStorage.getItem("waterlilyLastEpisode")) || 1;grid.innerHTML = "";people.filter(person =>person.firstEpisode <= selectedEpisode &&(person.name + " " + person.role).toLowerCase().includes(q.toLowerCase())).forEach(person => {const el = document.createElement("article");el.className = "card";
-const visibleFacts = person.facts.filter(fact => fact.episode <= selectedEpisode);el.innerHTML = `<span class="tag">${person.role}</span><h3>${person.name}</h3><p>Материалы досье: ${visibleFacts.length}</p><button type="button">Подробнее</button><div class="detail">${visibleFacts.map(fact => `<p>${fact.text}</p>`).join("")}</div>`;
+function render(q = "") {
+const selectedEpisode =
+Number(localStorage.getItem("waterlilyLastEpisode")) || 1;
+grid.innerHTML = "";
+people.filter(person =>
+person.firstEpisode <= selectedEpisode &&
+(person.name + " " + person.role).toLowerCase().includes(q.toLowerCase())).forEach(person => {
+const el = document.createElement("article");
+el.className = "card";
+const visibleFacts = person.facts.filter(fact => fact.episode <= selectedEpisode);
+el.innerHTML = `
+<span class="tag">${person.role}</span>
+<h3>${person.name}</h3>
+<p>Материалы досье: ${visibleFacts.length}</p>
+<button type="button">Подробнее</button>
+<div class="detail">${visibleFacts.map(fact => `<p>${fact.text}</p>`).join("")}</div>`;
 el.querySelector("button").addEventListener("click", () => {
 el.querySelector(".detail").classList.toggle("open");});
-grid.appendChild(el);});}render();document.getElementById("search").addEventListener("input", e => {render(e.target.value);});
+grid.appendChild(el);});}
+render();
+renderClues();
+document.getElementById("search").addEventListener("input", e => {render(e.target.value);});
 document.querySelectorAll(".main-nav button").forEach(btn => {btn.addEventListener("click", () => {document.querySelectorAll(".main-nav button").forEach(x => {x.classList.remove("active");});document.querySelectorAll(".panel").forEach(x => {x.classList.remove("active");});btn.classList.add("active");                                                                                                 
 const page = document.getElementById(btn.dataset.tab);if (page) {page.classList.add("active");}});});
 const episodeGate = document.getElementById("episode-gate");
