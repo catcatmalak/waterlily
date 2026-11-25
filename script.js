@@ -227,6 +227,13 @@ panel.classList.remove("active");});
 button.classList.add("active");
 const page = document.getElementById(button.dataset.tab);
 if (page) {page.classList.add("active");}});});
+// Переходы с главной страницы
+document.querySelectorAll(".home-card").forEach(button => {button.addEventListener("click", () => {document.querySelectorAll(".main-nav button").forEach(item => {item.classList.remove("active");});
+document.querySelectorAll(".panel").forEach(panel => {panel.classList.remove("active");});
+const page = document.getElementById(button.dataset.tab);
+if (page) {page.classList.add("active");}
+const navButton = document.querySelector('.main-nav button[data-tab="' + button.dataset.tab + '"]');
+if (navButton) {navButton.classList.add("active");}});});
 // Выбор серии
 const episodeGate = document.getElementById("episode-gate");
 function selectEpisode(episode) {episode = Number(episode);
