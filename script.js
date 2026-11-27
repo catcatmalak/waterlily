@@ -58,15 +58,26 @@ const timelineContainer = document.getElementById("timeline-container");
 if (!timelineContainer) return;
 const selectedEpisode = getSelectedEpisode();
 const events = (window.timelineData || []).filter(event => Number(event.revealEpisode) <= selectedEpisode);timelineContainer.innerHTML = "";
-if (events.length === 0) {timelineContainer.textContent = "Пока нет доступных событий.";
-return;}events.forEach(event => {
+if (!events.length) {timelineContainer.textContent = "Пока нет доступных событий.";return;}
+const groups = [{ title: "Прошлое", match: ["прошлое"] },{ title: "Последнее лето", match: ["последнее лето"] },{ title: "После гибели Лили", match: ["после гибели лили"] },{ title: "Пятилетний промежуток", match: ["пять лет", "пятилет"] },{ title: "Настоящее", match: ["настоящее"] }];
+const usedEvents = new Set();
+function addEventCard(event) {
 const card = createElement("article", "card timeline-card");card.appendChild(createElement("span", "tag", event.category || "Событие"));
 const dateText = [event.period,event.when,event.precision].filter(Boolean).join(" · ");
 if (dateText) {card.appendChild(createElement("p", "timeline-date", dateText));}card.appendChild(createElement("h3", "", event.title));card.appendChild(createElement("p", "", event.description));
 if (event.eventEpisode) {card.appendChild(createElement("span", "tag", "Событие: серия " + event.eventEpisode));}
 if (event.status) {card.appendChild(createElement("span", "tag", event.status));}
 if (event.people && event.people.length) {card.appendChild(createElement("p","timeline-people","Связанные персонажи: " + event.people.join(", ")));}
-if (event.note) {card.appendChild(createElement("p", "timeline-note", event.note));}timelineContainer.appendChild(card);});}
+if (event.note) {card.appendChild(createElement("p", "timeline-note", event.note));}
+return card;}groups.forEach(group => {
+const groupEvents = events.filter(event => {
+const period = String(event.period || "").toLowerCase();
+return group.match.some(value => period.includes(value));});
+if (!groupEvents.length) return;
+const section = createElement("section", "timeline-section");section.appendChild(createElement("h2", "", group.title));groupEvents.forEach(event => {section.appendChild(addEventCard(event));usedEvents.add(event);});timelineContainer.appendChild(section);});
+const otherEvents = events.filter(event => !usedEvents.has(event));
+if (otherEvents.length) {
+const section = createElement("section", "timeline-section");section.appendChild(createElement("h2", "", "Другие события"));otherEvents.forEach(event => {section.appendChild(addEventCard(event));});timelineContainer.appendChild(section);}}
 function render(q ="") {
 if (!grid) return;
 const selectedEpisode = getSelectedEpisode();
