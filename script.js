@@ -181,28 +181,23 @@ if (!theoriesContainer.children.length) {theoriesContainer.textContent = "Пок
 // Архив документов
 function renderDocuments() {
 const container = document.getElementById("documents-container");
+if (!container) return;
 const selectedEpisode = getSelectedEpisode();
 const documents = (window.documentsData || []).filter(item => {
-const match = String(item.episode || "").match(/1x(\d+)/);
-const revealEpisode = Number(item.revealEpisode ?? (match ? match[1] : NaN));
-return Number.isFinite(revealEpisode) &&revealEpisode <= selectedEpisode;});
-const selectedEpisode = getSelectedEpisode();
-const documents = (window.documentsData || []).filter(item => {
-const match = String(item.episode || "").match(/1x(\d+)/);
-const revealEpisode = Number(item.revealEpisode ?? (match ? match[1] : NaN));
-return Number.isFinite(revealEpisode) &&revealEpisode <= selectedEpisode;});
-if (!container) return;container.innerHTML = "";
-documents.forEach(item => {
-const card = createElement("article", "card");
-card.appendChild(createElement("span", "tag", item.category));
-card.appendChild(createElement("h3", "", item.title));
+let revealEpisode = Number(item.revealEpisode);
+if (!Number.isFinite(revealEpisode)) {
+const matches = String(item.episode || "").match(/1x\d+/g);
+if (!matches || !matches.length) return false;
+const lastMatch = matches[matches.length - 1];revealEpisode = Number(lastMatch.replace("1x", ""));}
+return revealEpisode <= selectedEpisode;});container.innerHTML = "";documents.forEach(item => {
+const card = createElement("article", "card");card.appendChild(createElement("span", "tag", item.category));card.appendChild(createElement("h3", "", item.title));
 if (item.episode) {card.appendChild(createElement("span", "tag", item.episode));}
 if (item.discoverer) {card.appendChild(createElement("p", "", "Обнаружил: " + item.discoverer));}
 if (item.status) {card.appendChild(createElement("p", "", "Статус: " + item.status));}
 if (item.description) {card.appendChild(createElement("p", "", item.description));}
-if (Array.isArray(item.details)) {appendList(card, "Подробности", item.details);} else if (item.details) {card.appendChild(createElement("p", "", item.details));}
-if (item.note) {card.appendChild(createElement("p", "", item.note));}
-container.appendChild(card);});
+if (Array.isArray(item.details)) {appendList(card, "Подробности", item.details);} 
+else if (item.details) {card.appendChild(createElement("p", "", item.details));}
+if (item.note) {card.appendChild(createElement("p", "", item.note));}container.appendChild(card);});
 if (!documents.length) {container.textContent = "В архиве пока нет документов.";}}
 // Первоначальная отрисовка
 render();
