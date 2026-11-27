@@ -8,7 +8,10 @@ const cluesGrid = document.getElementById("clues-container");
 const storyGrid = document.getElementById("story-container");
 const theoriesContainer = document.getElementById("theories-container");
 function getSelectedEpisode() {
-return Number(localStorage.getItem("waterlilyLastEpisode")) || 1;}
+const savedEpisode = Number(localStorage.getItem("waterlilyLastEpisode"));
+if (Number.isInteger(savedEpisode) &&savedEpisode >= 1 &&savedEpisode <= 23){
+return savedEpisode;}
+return 1;}
 function createElement(tag, className, text) {
 const element = document.createElement(tag);
 if (className) element.className = className;
@@ -51,35 +54,20 @@ card.appendChild(
 createElement("span", "tag", "Серия " + event.episode));
 storyGrid.appendChild(card);});}
 function renderTimeline() {
-const timelineContainer = document.getElementById("timeline-container");
-if (!timelineContainer) return;
+const container = document.getElementById("timeline-container");
+if (!container) return;
 const selectedEpisode = getSelectedEpisode();
-const events = (window.timelineData || [])
-.filter(event => event.revealEpisode <= selectedEpisode)
-.sort((a, b) => a.order - b.order);
-timelineContainer.innerHTML = "";
-if (events.length === 0) {timelineContainer.textContent = "Пока нет доступных событий.";
-return;}
-events.forEach(event => {
-const card = createElement("article", "card timeline-card");
-card.appendChild(
-createElement("span", "tag", event.type || "Событие"));
-card.appendChild(
-createElement(
-"p",
-"timeline-date",
-event.date || event.period || ""));
-card.appendChild(createElement("h3", "", event.title));
-card.appendChild(createElement("p", "", event.description));
-if (event.people && event.people.length) {
-card.appendChild(
-createElement(
-"p",
-"timeline-people",
-"Связанные персонажи: " + event.people.join(", ")));}
-if (event.status) {
-card.appendChild(createElement("span", "tag", event.status));}
-timelineContainer.appendChild(card);});}
+const events = (window.timelineData || []).filter(event => Number(event.revealEpisode) <= selectedEpisode);container.innerHTML = "";
+if (events.length === 0) {container.textContent = "Пока нет доступных событий.";
+return;}events.forEach(event => {
+const card = createElement("article", "card timeline-card");card.appendChild(createElement("span", "tag", event.category || "Событие"));
+const dateText = [event.period,event.when,event.precision].filter(Boolean).join(" · ");
+if (dateText) {card.appendChild(createElement("p", "timeline-date", dateText));}card.appendChild(createElement("h3", "", event.title));card.appendChild(createElement("p", "", event.description));
+if (event.eventEpisode) {card.appendChild(createElement("span","tag","Событие: серия " + event.eventEpisode));}
+if (event.status) {card.appendChild(createElement("span", "tag", event.status));}
+if (event.people && event.people.length) {card.appendChild(createElement("p","timeline-people","Связанные персонажи: " + event.people.join(", ")));}
+if (event.note) {card.appendChild(createElement("p", "timeline-note", event.note));}
+container.appendChild(card);});}
 function render(q = "") {
 if (!grid) return;
 const selectedEpisode = getSelectedEpisode();
@@ -193,7 +181,16 @@ if (!theoriesContainer.children.length) {theoriesContainer.textContent = "Пок
 // Архив документов
 function renderDocuments() {
 const container = document.getElementById("documents-container");
-const documents = window.documentsData || [];
+const selectedEpisode = getSelectedEpisode();
+const documents = (window.documentsData || []).filter(item => {
+const match = String(item.episode || "").match(/1x(\d+)/);
+const revealEpisode = Number(item.revealEpisode ?? (match ? match[1] : NaN));
+return Number.isFinite(revealEpisode) &&revealEpisode <= selectedEpisode;});
+const selectedEpisode = getSelectedEpisode();
+const documents = (window.documentsData || []).filter(item => {
+const match = String(item.episode || "").match(/1x(\d+)/);
+const revealEpisode = Number(item.revealEpisode ?? (match ? match[1] : NaN));
+return Number.isFinite(revealEpisode) &&revealEpisode <= selectedEpisode;});
 if (!container) return;container.innerHTML = "";
 documents.forEach(item => {
 const card = createElement("article", "card");
@@ -237,7 +234,7 @@ if (navButton) {navButton.classList.add("active");}});});
 // Выбор серии
 const episodeGate = document.getElementById("episode-gate");
 function selectEpisode(episode) {episode = Number(episode);
-if (episode < 1 || episode > 20) return;
+if (episode < 1 || episode > 23) return;
 localStorage.setItem("waterlilyLastEpisode", episode);
 document.querySelectorAll("[data-view-episode]").forEach(button => {
 button.classList.toggle("active",Number(button.dataset.viewEpisode) === episode);});
@@ -249,7 +246,8 @@ renderClues();
 renderStory();
 renderTimeline();
 renderTheories();
-renderEpisodeDescription();}
+renderEpisodeDescription();
+renderDocuments();}
 // Кнопки серий под меню
 document.querySelectorAll("[data-view-episode]").forEach(button => {
 button.addEventListener("click", () => {
@@ -298,7 +296,7 @@ if (event.target === episodeDescription) {closeEpisodeModal();}});}document.addE
 if (event.key === "Escape") {closeEpisodeModal();}});
 // Восстановление последней выбранной серии
 const savedEpisode = Number(localStorage.getItem("waterlilyLastEpisode"));
-if (savedEpisode >= 1 && savedEpisode <= 20) {selectEpisode(savedEpisode);}
+if (savedEpisode >= 1 && savedEpisode <= 23) {selectEpisode(savedEpisode);}
 
 
 
