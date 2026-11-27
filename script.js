@@ -67,7 +67,7 @@ if (event.eventEpisode) {card.appendChild(createElement("span", "tag", "Собы
 if (event.status) {card.appendChild(createElement("span", "tag", event.status));}
 if (event.people && event.people.length) {card.appendChild(createElement("p","timeline-people","Связанные персонажи: " + event.people.join(", ")));}
 if (event.note) {card.appendChild(createElement("p", "timeline-note", event.note));}timelineContainer.appendChild(card);});}
-fuction render(q ="") {
+function render(q ="") {
 if (!grid) return;
 const selectedEpisode = getSelectedEpisode();
 grid.innerHTML = "";
