@@ -57,18 +57,22 @@ function renderTimeline() {
 const container = document.getElementById("timeline-container");
 if (!container) return;
 const selectedEpisode = getSelectedEpisode();
-const events = (window.timelineData || []).filter(event => Number(event.revealEpisode) <= selectedEpisode);container.innerHTML = "";
-if (events.length === 0) {container.textContent = "Пока нет доступных событий.";
-return;}events.forEach(event => {
+const events = (window.timelineData || []).filter(event =>Number(event.revealEpisode) <= selectedEpisode);container.innerHTML = "";
+if (events.length === 0) {container.textContent = "Пока нет доступных событий.";return;}
+// Группируем события по временным периодам
+const groups = new Map();events.forEach(event => {
+const period = event.period || "Период не установлен";
+if (!groups.has(period)) {groups.set(period, []);}groups.get(period).push(event);});
+// Создаём отдельный раздел для каждого периода
+groups.forEach((periodEvents, periodName) => {
+const section = createElement("section", "timeline-period-group");section.appendChild(createElement("h3", "timeline-period-heading", periodName));periodEvents.forEach(event => {
 const card = createElement("article", "card timeline-card");card.appendChild(createElement("span", "tag", event.category || "Событие"));
-const dateText = [event.period,event.when,event.precision].filter(Boolean).join(" · ");
+const dateText = [event.when,event.precision].filter(Boolean).join(" · ");
 if (dateText) {card.appendChild(createElement("p", "timeline-date", dateText));}card.appendChild(createElement("h3", "", event.title));card.appendChild(createElement("p", "", event.description));
 if (event.eventEpisode) {card.appendChild(createElement("span","tag","Событие: серия " + event.eventEpisode));}
 if (event.status) {card.appendChild(createElement("span", "tag", event.status));}
 if (event.people && event.people.length) {card.appendChild(createElement("p","timeline-people","Связанные персонажи: " + event.people.join(", ")));}
-if (event.note) {card.appendChild(createElement("p", "timeline-note", event.note));}
-container.appendChild(card);});}
-function render(q = "") {
+if (event.note) {card.appendChild(createElement("p", "timeline-note", event.note));}section.appendChild(card);});container.appendChild(section);});}
 if (!grid) return;
 const selectedEpisode = getSelectedEpisode();
 grid.innerHTML = "";
