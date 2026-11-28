@@ -228,6 +228,15 @@ panel.classList.remove("active");});
 button.classList.add("active");
 const page = document.getElementById(button.dataset.tab);
 if (page) {page.classList.add("active");}});});
+// Главная кнопка в первом экране
+const heroOpenButton = document.querySelector(".primary-link[data-tab]");
+if (heroOpenButton) {
+  heroOpenButton.addEventListener("click", () => {
+    const targetButton = document.querySelector('.main-nav button[data-tab="' + heroOpenButton.dataset.tab + '"]');
+    if (targetButton) targetButton.click();
+  });
+}
+
 // Переходы с главной страницы
 document.querySelectorAll(".home-card").forEach(button => {button.addEventListener("click", () => {document.querySelectorAll(".main-nav button").forEach(item => {item.classList.remove("active");});
 document.querySelectorAll(".panel").forEach(panel => {panel.classList.remove("active");});
