@@ -1,178 +1,195 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Водяная Лилия — архив расследования</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a30">
+  <meta name="description" content="Водяная Лилия — исследовательский архив истории Уиндрoуз-Бей.">
+  <title>Водяная Лилия — закрытый архив</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="main-nav">
-<button class="active" data-tab="home">Первая запись</button><button data-tab="people">Персонажи</button><button data-tab="story">История дела</button><button data-tab="clues">Улики</button><button data-tab="timeline">Хронология</button><button data-tab="questions">Теории и вопросы</button><button data-tab="archive">Архив документов</button>
-</nav>
-<section id="episode-gate" class="episode-gate">
-<div class="kicker">Водяная Лилия · Архив расследования</div>
-<h2>На какой серии вы остановились?</h2>
-<p>Выберите последнюю серию, которую вы полностью прочитали. Архив будет учитывать ваш выбор, чтобы не раскрывать события из будущих серий.</p>
-<div class="episode-gate-grid">
-    <button data-episode="1">01</button>
-    <button data-episode="2">02</button>
-    <button data-episode="3">03</button>
-    <button data-episode="4">04</button>
-    <button data-episode="5">05</button>
-    <button data-episode="6">06</button>
-    <button data-episode="7">07</button>
-    <button data-episode="8">08</button>
-    <button data-episode="9">09</button>
-    <button data-episode="10">10</button>
-    <button data-episode="11">11</button>
-    <button data-episode="12">12</button>
-    <button data-episode="13">13</button>
-    <button data-episode="14">14</button>
-    <button data-episode="15">15</button>
-    <button data-episode="16">16</button>
-    <button data-episode="17">17</button>
-    <button data-episode="18">18</button>
-    <button data-episode="19">19</button>
-    <button data-episode="20">20</button>
-    <button data-episode="21">21</button>
-    <button data-episode="22">22</button>
-    <button data-episode="23">23</button>
-</div>
-<p class="episode-gate-note">Вы сможете изменить выбор позже.</p>
-</section>
-<div class="episode-selector">
-  <button data-view-episode="1">01</button>
-  <button data-view-episode="2">02</button>
-  <button data-view-episode="3">03</button>
-  <button data-view-episode="4">04</button>
-  <button data-view-episode="5">05</button>
-  <button data-view-episode="6">06</button>
-  <button data-view-episode="7">07</button>
-  <button data-view-episode="8">08</button>
-  <button data-view-episode="9">09</button>
-  <button data-view-episode="10">10</button>
-  <button data-view-episode="11">11</button>
-  <button data-view-episode="12">12</button>
-  <button data-view-episode="13">13</button>
-  <button data-view-episode="14">14</button>
-  <button data-view-episode="15">15</button>
-  <button data-view-episode="16">16</button>
-  <button data-view-episode="17">17</button>
-  <button data-view-episode="18">18</button>
-  <button data-view-episode="19">19</button>
-  <button data-view-episode="20">20</button>
-  <button data-view-episode="21">21</button>
-  <button data-view-episode="22">22</button>
-  <button data-view-episode="23">23</button>
-</div>
-<button id="episode-details-toggle" class="episode-details-toggle" type="button">
-✧ Содержание серии
-<span>⌄</span>
-</button>
-<div class="episode-modal" id="episode-description">
-<div class="episode-modal-content">
-<button class="episode-modal-close" id="episode-modal-close" type="button">×</button>
-<div class="episode-description-header">
-<span id="episode-number">СЕРИЯ 01</span>
-<h3 id="episode-title">Название серии</h3>
-</div>
-<p id="episode-summary">Краткое содержание серии.</p>
-<button id="episode-details-button" type="button">
-Читать полное описание
-</button>
-<div id="episode-full-description" class="episode-full-description"></div>
-</div>
-</div>
-<main>
-<section id="home" class="panel active">
-<div class="home-intro">
-<div class="kicker">Личный архив расследования</div>
-<h2>Водяная Лилия</h2>
-<p class="intro">
-Некоторые истории не заканчиваются вместе с последней страницей.Они оставляют после себя вопросы, странные совпадения и следы,которые кто-то должен собрать воедино.
-</p>
-<p>
-Это рабочий дневник Райли Пирс. Здесь собраны люди, события,улики и документы, связанные с историей Уиндрoуз-Бей.
-</p>
-</div>
-<div class="home-sections">
-<button class="home-card" data-tab="people">
-<span>01</span>
-<h3>Персонажи</h3>
-<p>Люди, чьи истории переплетаются с расследованием.</p>
-</button>
-<button class="home-card" data-tab="story">
-<span>02</span>
-<h3>История дела</h3>
-<p>События и обстоятельства, с которых всё началось.</p>
-</button>
-<button class="home-card" data-tab="clues">
-<span>03</span>
-<h3>Улики</h3>
-<p>Предметы, сообщения и детали, которые нельзя игнорировать.</p>
-</button>
-<button class="home-card" data-tab="timeline">
-<span>04</span>
-<h3>Хронология</h3>
-<p>Последовательность событий и важных дат.</p>
-</button>
-<button class="home-card" data-tab="questions">
-<span>05</span>
-<h3>Теории и вопросы</h3>
-<p>Предположения, версии и то, что ещё предстоит выяснить.</p>
-</button>
-<button class="home-card" data-tab="archive">
-<span>06</span>
-<h3>Архив документов</h3>
-<p>Письма, записи и материалы расследования.</p>
-</button>
-</div>
-</section>
-<section id="story" class="panel">
-<h2>История дела</h2>
-<p class="intro">История, в которой прошлое не отпускает настоящее, а за внешне привычными событиями скрываются вопросы, на которые ещё предстоит найти ответы.</p>
-<div class="grid" id="story-container"></div></section>
-<section id="people" class="panel">
-<h2>Персонажи</h2>
-<p class="intro">Краткие карточки участников истории. Данные ниже — демонстрационное наполнение, его нужно сверить с игрой.</p>
-<input id="search" placeholder="Найти персонажа…">
-<div class="grid" id="peopleGrid"></div>
-</section>
-<section id="clues" class="panel">
-<h2>Улики и доказательства</h2>
-<p class="intro">
-Каждая деталь может оказаться важной. Здесь собраны предметы, документы, сообщения и свидетельства, которые помогают восстановить события и разобраться в тайнах Уиндроуз-Бей.
-</p>
-<div id="clues-container" class="grid"></div>
-</section>
-<section id="timeline" class="panel">
-<h2>Хронология событий</h2>
-<p class="intro">Последовательность событий, восстановленная по материалам расследования.</p>
-<div id="timeline-container" class="grid"></div>
-</section>
-<section id="questions" class="panel">
-<h2>Теории и вопросы</h2>
-<p class="intro">
-Версии произошедшего, аргументы и вопросы, которые ещё предстоит проверить.
-</p>
- <div id="theories-container" class="grid"></div>
-</section>
-<section id="archive" class="panel">
-<h2>Архив документов</h2>
-<p class="intro">
-Документы, письма, личные записи и другие материалы,обнаруженные в ходе расследования.
-</p>
-<div id="documents-container" class="grid"></div>
-</section>
-<script src="data/people.js"></script>
-<script src="data/episodes.js"></script>
-<script src="data/clues.js"></script>
-<script src="data/story.js"></script>
-<script src="data/timeline.js"></script>
-<script src="data/theories.js"></script>
-<script src="data/documents.js"></script>
-<script src="script.js"></script>
-</main>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="wordmark" href="#home" aria-label="Водяная Лилия — на главную">
+      <span class="wordmark-mark">✳</span>
+      <span><b>WATER LILY</b><small>ЗАКРЫТЫЙ АРХИВ</small></span>
+    </a>
+    <div class="masthead-note">ЧАСТНОЕ ДЕЛО <span>№ 01—23</span></div>
+  </header>
+
+  <nav class="main-nav" aria-label="Основная навигация">
+    <button class="active" data-tab="home" type="button">Главная</button>
+    <button data-tab="people" type="button">Персонажи</button>
+    <button data-tab="story" type="button">История дела</button>
+    <button data-tab="clues" type="button">Улики</button>
+    <button data-tab="timeline" type="button">Хронология</button>
+    <button data-tab="questions" type="button">Теории и вопросы</button>
+    <button data-tab="archive" type="button">Архив документов</button>
+  </nav>
+
+  <section id="episode-gate" class="episode-gate" aria-label="Выбор последнего прочитанного эпизода">
+    <div class="gate-card">
+      <span class="eyebrow">ДОСТУП К МАТЕРИАЛАМ</span>
+      <div class="gate-flower" aria-hidden="true">✳</div>
+      <h2>На какой серии вы остановились?</h2>
+      <p>Укажите последний полностью прочитанный эпизод. Архив откроет только те материалы, которые не раскрывают дальнейшие события.</p>
+      <div class="episode-gate-grid">
+        <button type="button" data-episode="1">01</button>
+<button type="button" data-episode="2">02</button>
+<button type="button" data-episode="3">03</button>
+<button type="button" data-episode="4">04</button>
+<button type="button" data-episode="5">05</button>
+<button type="button" data-episode="6">06</button>
+<button type="button" data-episode="7">07</button>
+<button type="button" data-episode="8">08</button>
+<button type="button" data-episode="9">09</button>
+<button type="button" data-episode="10">10</button>
+<button type="button" data-episode="11">11</button>
+<button type="button" data-episode="12">12</button>
+<button type="button" data-episode="13">13</button>
+<button type="button" data-episode="14">14</button>
+<button type="button" data-episode="15">15</button>
+<button type="button" data-episode="16">16</button>
+<button type="button" data-episode="17">17</button>
+<button type="button" data-episode="18">18</button>
+<button type="button" data-episode="19">19</button>
+<button type="button" data-episode="20">20</button>
+<button type="button" data-episode="21">21</button>
+<button type="button" data-episode="22">22</button>
+<button type="button" data-episode="23">23</button>
+      </div>
+      <span class="gate-footnote">Выбор можно изменить в любой момент</span>
+    </div>
+  </section>
+
+  <div class="episode-toolbar">
+    <div class="episode-toolbar-label"><span class="live-dot"></span> ДОСТУП ОТКРЫТ ДО ЭПИЗОДА</div>
+    <div class="episode-selector" aria-label="Выбрать последний прочитанный эпизод">
+      <button type="button" data-view-episode="1">01</button>
+<button type="button" data-view-episode="2">02</button>
+<button type="button" data-view-episode="3">03</button>
+<button type="button" data-view-episode="4">04</button>
+<button type="button" data-view-episode="5">05</button>
+<button type="button" data-view-episode="6">06</button>
+<button type="button" data-view-episode="7">07</button>
+<button type="button" data-view-episode="8">08</button>
+<button type="button" data-view-episode="9">09</button>
+<button type="button" data-view-episode="10">10</button>
+<button type="button" data-view-episode="11">11</button>
+<button type="button" data-view-episode="12">12</button>
+<button type="button" data-view-episode="13">13</button>
+<button type="button" data-view-episode="14">14</button>
+<button type="button" data-view-episode="15">15</button>
+<button type="button" data-view-episode="16">16</button>
+<button type="button" data-view-episode="17">17</button>
+<button type="button" data-view-episode="18">18</button>
+<button type="button" data-view-episode="19">19</button>
+<button type="button" data-view-episode="20">20</button>
+<button type="button" data-view-episode="21">21</button>
+<button type="button" data-view-episode="22">22</button>
+<button type="button" data-view-episode="23">23</button>
+    </div>
+    <button id="episode-details-toggle" class="episode-details-toggle" type="button">
+      Содержание серии <span aria-hidden="true">⌄</span>
+    </button>
+  </div>
+
+  <div class="episode-modal" id="episode-description" role="dialog" aria-modal="true" aria-label="Содержание эпизода">
+    <div class="episode-modal-content">
+      <button class="episode-modal-close" id="episode-modal-close" type="button" aria-label="Закрыть">×</button>
+      <div class="episode-description-header">
+        <span id="episode-number">СЕРИЯ 01</span>
+        <h3 id="episode-title">Название серии</h3>
+      </div>
+      <p id="episode-summary">Краткое содержание серии.</p>
+      <button id="episode-details-button" type="button">Читать полное описание</button>
+      <div id="episode-full-description" class="episode-full-description"></div>
+    </div>
+  </div>
+
+  <main>
+    <section id="home" class="panel active">
+      <div class="hero">
+        <div class="hero-image" aria-hidden="true"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="eyebrow hero-eyebrow"><span></span> ИССЛЕДОВАТЕЛЬСКОЕ ДОСЬЕ · 23 ЭПИЗОДА</div>
+          <h1>Водяная<br><em>Лилия</em></h1>
+          <p class="hero-subtitle">У каждой истории есть поверхность.<br>И то, что скрывается под ней.</p>
+          <button class="primary-link" data-tab="story" type="button">ОТКРЫТЬ ДЕЛО <span>↗</span></button>
+        </div>
+        <div class="hero-caption"><span>УИНДРОУЗ-БЕЙ</span><i></i><span>ПОСЛЕ ПОЛУНОЧИ</span></div>
+        <div class="hero-index">01 <span>/</span> 23</div>
+      </div>
+
+      <div class="home-intro editorial-section">
+        <div class="section-index">I — ПРЕДИСЛОВИЕ</div>
+        <div class="intro-copy">
+          <h2>Некоторые тайны<br><em>не любят света.</em></h2>
+          <p class="lead">Это не просто собрание заметок. Это попытка восстановить историю, которую слишком многие предпочли бы оставить в прошлом.</p>
+          <p>Люди, события, найденные предметы и чужие воспоминания складываются в одно дело — историю Уиндрoуз-Бей и тех, кто оказался связан с гибелью Лили Фэйрчайлд.</p>
+        </div>
+        <div class="intro-seal" aria-hidden="true"><span>W</span><small>ARCHIVE<br>EST. 2026</small></div>
+      </div>
+
+      <div class="home-sections">
+        <button class="home-card" data-tab="people" type="button"><span class="card-number">01</span><span class="card-arrow">↗</span><h3>Персонажи</h3><p>Те, чьи судьбы переплелись с историей поместья.</p></button>
+        <button class="home-card" data-tab="story" type="button"><span class="card-number">02</span><span class="card-arrow">↗</span><h3>История дела</h3><p>События, свидетельства и обстоятельства расследования.</p></button>
+        <button class="home-card" data-tab="clues" type="button"><span class="card-number">03</span><span class="card-arrow">↗</span><h3>Улики</h3><p>Предметы и детали, которые не дают закрыть дело.</p></button>
+        <button class="home-card" data-tab="timeline" type="button"><span class="card-number">04</span><span class="card-arrow">↗</span><h3>Хронология</h3><p>Попытка расположить разрозненные события во времени.</p></button>
+        <button class="home-card" data-tab="questions" type="button"><span class="card-number">05</span><span class="card-arrow">↗</span><h3>Теории и вопросы</h3><p>Версии, противоречия и то, что ещё предстоит выяснить.</p></button>
+        <button class="home-card" data-tab="archive" type="button"><span class="card-number">06</span><span class="card-arrow">↗</span><h3>Архив документов</h3><p>Письма, личные записи и другие материалы дела.</p></button>
+      </div>
+      <div class="closing-note"><span>✳</span> НЕ ВСЁ, ЧТО ПОХОРОНЕНО, ОСТАЁТСЯ В ПРОШЛОМ</div>
+    </section>
+
+    <section id="people" class="panel">
+      <div class="panel-heading"><div class="section-index">II — УЧАСТНИКИ</div><h2>Персонажи</h2><p class="intro">Досье на людей, чьи истории связаны с Уиндрoуз-Бей. Новые сведения открываются по мере чтения эпизодов.</p></div>
+      <input id="search" type="search" placeholder="Поиск по именам и ролям…" aria-label="Поиск персонажа">
+      <div class="grid" id="peopleGrid"></div>
+    </section>
+
+    <section id="story" class="panel">
+      <div class="panel-heading"><div class="section-index">III — ОБСТОЯТЕЛЬСТВА</div><h2>История дела</h2><p class="intro">События, воспоминания и свидетельства — в том порядке, в котором они становятся известны.</p></div>
+      <div class="grid" id="story-container"></div>
+    </section>
+
+    <section id="clues" class="panel">
+      <div class="panel-heading"><div class="section-index">IV — ВЕЩЕСТВЕННЫЕ МАТЕРИАЛЫ</div><h2>Улики</h2><p class="intro">Предметы, сообщения и детали, которые помогают восстановить ход событий. Отдельно отмечены факты и обстоятельства, требующие проверки.</p></div>
+      <div id="clues-container" class="grid"></div>
+    </section>
+
+    <section id="timeline" class="panel">
+      <div class="panel-heading"><div class="section-index">V — ВРЕМЕННАЯ КАРТА</div><h2>Хронология</h2><p class="intro">Последовательность событий, собранная по материалам расследования. Даты и степень точности указаны там, где они известны.</p></div>
+      <div id="timeline-container" class="grid"></div>
+    </section>
+
+    <section id="questions" class="panel">
+      <div class="panel-heading"><div class="section-index">VI — РАБОЧИЕ ВЕРСИИ</div><h2>Теории и вопросы</h2><p class="intro">Гипотезы не являются установленными фактами. Каждая версия требует сопоставления аргументов, контраргументов и доступных свидетельств.</p></div>
+      <div id="theories-container" class="grid"></div>
+    </section>
+
+    <section id="archive" class="panel">
+      <div class="panel-heading"><div class="section-index">VII — ПРИЛОЖЕНИЯ К ДЕЛУ</div><h2>Архив документов</h2><p class="intro">Письма, записки, личные записи и другие материалы, обнаруженные в ходе истории.</p></div>
+      <div id="documents-container" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>WATER LILY · PRIVATE ARCHIVE</span><span>НЕОФИЦИАЛЬНЫЙ ФАН-ПРОЕКТ ПО МОТИВАМ ИСТОРИИ ROMANCE CLUB</span><span>✳</span></footer>
+
+  <script src="data/people.js"></script>
+  <script src="data/episodes.js"></script>
+  <script src="data/clues.js"></script>
+  <script src="data/story.js"></script>
+  <script src="data/timeline.js"></script>
+  <script src="data/theories.js"></script>
+  <script src="data/documents.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
